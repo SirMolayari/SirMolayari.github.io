@@ -1,0 +1,888 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <!-- Global SEO Optimization -->
+  <title>Mohammad Mahdi Molayari | Solo Indie Game Developer & 3D Artist | Active Legend</title>
+  <meta name="description" content="Official portfolio of Mohammad Mahdi Molayari, Solo Indie Game Developer (0 to 100), 3D Artist, and Founder of Active Legend. Creator of Dodge Or Seek and FoodPlanet with Unreal Engine 5.6.1.">
+  <meta name="keywords" content="Mohammad Mahdi Molayari, محمد مهدی مولایاری, Active Legend, اکتیو لجند, Solo Indie Developer, Dodge Or Seek, FoodPlanet, Unreal Engine 5, 3D Game Developer, activelegend.ir">
+  <meta name="author" content="Mohammad Mahdi Molayari">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://activelegend.ir/">
+
+  <!-- Open Graph / Social Sharing -->
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://activelegend.ir/">
+  <meta property="og:title" content="Mohammad Mahdi Molayari | Solo Indie Game Developer & 3D Artist">
+  <meta property="og:description" content="Explore interactive virtual worlds, Unreal Engine 5 games, and handcrafted animation arts by Mohammad Mahdi Molayari.">
+  <meta property="og:image" content="assets/MMMlogo.png">
+
+  <!-- Twitter Meta -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Mohammad Mahdi Molayari | Solo Indie Game Developer & 3D Artist">
+  <meta name="twitter:description" content="Founder of Active Legend. Creator of Dodge Or Seek and FoodPlanet in Unreal Engine 5.6.1.">
+  <meta name="twitter:image" content="assets/MMMlogo.png">
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/png" href="assets/favicon.png">
+  <link rel="apple-touch-icon" href="assets/favicon.png">
+  <meta name="theme-color" content="#02030a">
+
+  <!-- Google Fonts Preconnect -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+  <!-- Stylesheets -->
+  <link rel="stylesheet" href="css/main.css">
+  <link rel="stylesheet" href="css/glassmorphism.css">
+  <link rel="stylesheet" href="css/floating-physics.css">
+  <link rel="stylesheet" href="css/responsive.css">
+
+  <!-- Structured Data (JSON-LD) for Global Game Developer & Studio -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "Person",
+        "@id": "https://activelegend.ir/#developer",
+        "name": "Mohammad Mahdi Molayari",
+        "alternateName": "محمد مهدی مولایاری",
+        "jobTitle": "Solo Indie Game Developer & 3D Artist",
+        "url": "https://activelegend.ir",
+        "image": "assets/MMMlogo.png",
+        "sameAs": [
+          "https://activelegend.ir",
+          "https://github.com/SirMolayari"
+        ],
+        "knowsAbout": [
+          "Unreal Engine 5.6.1",
+          "Solo Game Development (0 to 100)",
+          "Full Gameplay Loop Creation",
+          "Technical Game Design",
+          "End-to-End Core Coding",
+          "Animation Assembly & State Machines",
+          "Audio Synchronization",
+          "Multiplayer & Network Programming",
+          "Extreme Game Size Optimization",
+          "Stop-Motion Claymation",
+          "Cut-out Animation",
+          "Silhouette Animation",
+          "Pixilation"
+        ]
+      },
+      {
+        "@type": "Organization",
+        "@id": "https://activelegend.ir/#studio",
+        "name": "Active Legend",
+        "alternateName": "اکتیو لجند",
+        "url": "https://activelegend.ir",
+        "founder": {
+          "@id": "https://activelegend.ir/#developer"
+        },
+        "description": "Independent game development studio creating high-fidelity interactive virtual experiences."
+      }
+    ]
+  }
+  </script>
+</head>
+<body>
+
+  <!-- Background Space Canvas (60FPS Floating Particle Engine) -->
+  <canvas id="space-canvas"></canvas>
+  <div class="cosmic-nebula-bg" aria-hidden="true"></div>
+
+  <!-- Top Floating Telemetry HUD -->
+  <header class="hud-telemetry" aria-label="System Telemetry">
+    <div class="hud-item">
+      <span class="hud-label" data-i18n="hudCoords">SECTOR:</span>
+      <span class="hud-value" data-i18n="hudCoordsVal">DEEP SPACE ORBIT</span>
+    </div>
+    <div class="hud-item">
+      <span class="hud-label" data-i18n="hudEngine">ENGINE:</span>
+      <span class="hud-value">UNREAL 5.6.1</span>
+    </div>
+    <div class="hud-item">
+      <span class="hud-label" data-i18n="hudFlux">FIELD FLUX:</span>
+      <span class="hud-value" id="hud-flux">STABLE</span>
+    </div>
+    <div class="hud-item">
+      <span class="hud-label" data-i18n="hudPerf">PERF:</span>
+      <span class="hud-value" id="hud-fps">60 FPS</span>
+    </div>
+  </header>
+
+  <!-- Top Right Interactive HUD Controls -->
+  <aside class="hud-controls" aria-label="Interactive Controls">
+    <button id="toggle-lang-btn" class="hud-btn" title="Auto-Detected Language (Click to Toggle FA/EN)" aria-label="Toggle language between Persian and English">
+      <span>🌐</span> <span data-i18n="hudLangBtn">LANG: EN</span>
+    </button>
+    <button id="toggle-flux-btn" class="hud-btn" title="Toggle Visual Physics Field" aria-label="Toggle visual physics flux">
+      <span>🌀</span> <span data-i18n="hudFluxBtn">FLUX: STABLE</span>
+    </button>
+    <button id="toggle-audio-btn" class="hud-btn" title="Toggle Sci-Fi Synthesizer Audio" aria-label="Toggle synthesized UI audio sound effects">
+      <span>🔇</span> <span data-i18n="hudAudioOff">AUDIO: OFF</span>
+    </button>
+  </aside>
+
+  <!-- Main Floating Island Dock Navigation -->
+  <nav class="floating-nav" aria-label="Main Navigation">
+    <a href="#hero" class="nav-link active" title="Cosmic Core">
+      <span class="nav-icon">🪐</span>
+      <span class="nav-text" data-i18n="navCore">Core</span>
+    </a>
+    <a href="#about" class="nav-link" title="About Mohammad Mahdi Molayari">
+      <span class="nav-icon">👨‍🚀</span>
+      <span class="nav-text" data-i18n="navAbout">About</span>
+    </a>
+    <a href="#skills" class="nav-link" title="Solo 0 to 100 Expertise">
+      <span class="nav-icon">⚡</span>
+      <span class="nav-text" data-i18n="navSkills">Solo 0-100</span>
+    </a>
+    <a href="#craft" class="nav-link" title="Hand-Crafted Animation Techniques">
+      <span class="nav-icon">🎬</span>
+      <span class="nav-text" data-i18n="navCraft">Animation Art</span>
+    </a>
+    <a href="#projects" class="nav-link" title="Flagship Game Projects">
+      <span class="nav-icon">🎮</span>
+      <span class="nav-text" data-i18n="navGames">Games</span>
+    </a>
+    <a href="#studio" class="nav-link" title="Active Legend Studio">
+      <span class="nav-icon">🌟</span>
+      <span class="nav-text" data-i18n="navStudio">Studio</span>
+    </a>
+    <a href="#contact" class="nav-link" title="Direct Contact">
+      <span class="nav-icon">✉️</span>
+      <span class="nav-text" data-i18n="navComms">Contact</span>
+    </a>
+  </nav>
+
+  <main>
+    <!-- =========================================================
+         1. HERO SECTION (Weightless Centerpiece Logo & Glitch Subtitle)
+    ========================================================= -->
+    <section id="hero" class="hero-section" aria-label="Hero Introduction">
+      
+      <!-- Centerpiece: Floating MMM Logo with Orbital Rings -->
+      <div class="logo-grav-wrapper" data-parallax-depth="24">
+        <!-- Glowing Plasma Aura -->
+        <div class="plasma-core"></div>
+        
+        <!-- Rotating Orbital Rings -->
+        <div class="orbital-ring orbital-ring-1"></div>
+        <div class="orbital-ring orbital-ring-2"></div>
+        <div class="orbital-ring orbital-ring-3"></div>
+
+        <!-- Weightless Levitation Container -->
+        <div class="logo-levitate">
+          <img src="assets/MMMlogo.png" alt="Mohammad Mahdi Molayari Logo - MMM Active Legend" class="main-logo-img" width="340" height="340" fetchpriority="high">
+        </div>
+      </div>
+
+      <!-- Hero Typography & Glitch Subtitle -->
+      <div class="hero-content">
+        <div class="section-badge anti-grav-float-1 delay-1">
+          <span class="status-dot"></span>
+          <span data-i18n="heroBadge">Interactive Game Developer Portfolio</span>
+        </div>
+
+        <h1 class="hero-title">
+          <span class="text-gradient" data-i18n="heroTitle">Mohammad Mahdi Molayari</span>
+        </h1>
+
+        <div class="hero-subtitle-wrapper">
+          <div class="typing-container">
+            <span id="typing-subtitle" class="glitch-hover">Solo Indie Game Developer (0 to 100)</span>
+            <span class="typing-cursor" aria-hidden="true"></span>
+          </div>
+        </div>
+
+        <!-- Magnetic Call-To-Action Buttons -->
+        <div class="hero-actions">
+          <a href="#projects" class="btn btn-primary magnetic-btn">
+            <span data-i18n="heroBtnExplore">Explore Flagship Games</span>
+            <span aria-hidden="true">⚡</span>
+          </a>
+          <a href="https://activelegend.ir" target="_blank" rel="noopener noreferrer" class="btn btn-secondary magnetic-btn">
+            <span data-i18n="heroBtnStudio">Active Legend Studio</span>
+            <span aria-hidden="true">↗</span>
+          </a>
+        </div>
+
+        <!-- Live HUD Telemetry Stats Row -->
+        <div class="hero-stats-row reveal-on-scroll">
+          <div class="stat-pill anti-grav-float-1 delay-1">
+            <span class="stat-value">UE 5.6.1</span>
+            <span class="stat-label" data-i18n="statEngine">Core Architecture</span>
+          </div>
+          <div class="stat-pill anti-grav-float-2 delay-2">
+            <span class="stat-value">0 to 100</span>
+            <span class="stat-label" data-i18n="statPipeline">Solo Pipeline</span>
+          </div>
+          <div class="stat-pill anti-grav-float-3 delay-3">
+            <span class="stat-value">Artisan</span>
+            <span class="stat-label" data-i18n="statCraft">Hand-Crafted Animation</span>
+          </div>
+          <div class="stat-pill anti-grav-float-1 delay-4">
+            <span class="stat-value">60 FPS</span>
+            <span class="stat-label" data-i18n="statPerf">Engine Optimization</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- =========================================================
+         2. ABOUT ME SECTION
+    ========================================================= -->
+    <section id="about" aria-label="About Mohammad Mahdi Molayari">
+      <div class="container">
+        
+        <div class="section-header reveal-on-scroll">
+          <div class="section-badge">
+            <span class="status-dot"></span>
+            <span data-i18n="aboutBadge">Developer Dossier</span>
+          </div>
+          <h2 class="section-title">
+            <span data-i18n="aboutTitleStart">Architecting</span> <span class="text-gradient" data-i18n="aboutTitleEnd">Virtual Realities</span>
+          </h2>
+          <p class="section-subtitle" data-i18n="aboutSubtitle">
+            Building entire game ecosystems from 0 to 100 — mastering Unreal Engine 5.6.1 real-time technology, technical design, and systems architecture.
+          </p>
+        </div>
+
+        <div class="about-grid">
+          
+          <!-- Bio Glass Panel with Corner Tech Brackets -->
+          <article class="glass-panel glass-panel-neon about-bio-card reveal-on-scroll" data-parallax-depth="8">
+            <div class="corner-bracket corner-top-left"></div>
+            <div class="corner-bracket corner-top-right"></div>
+            <div class="corner-bracket corner-bottom-left"></div>
+            <div class="corner-bracket corner-bottom-right"></div>
+
+            <h3 style="font-size: 1.5rem; margin-bottom: 1.25rem; color: #ffffff;">
+              <span data-i18n="aboutConsoleTitle">Solo Indie Developer</span> <span class="text-gradient" data-i18n="aboutConsoleSub">(0 to 100 Pipeline)</span>
+            </h3>
+            
+            <p style="color: var(--text-muted); margin-bottom: 1.2rem; font-size: 1rem; line-height: 1.8;" data-i18n="aboutBio1">
+              I am <strong>Mohammad Mahdi Molayari</strong>, an Indie Game Developer, 3D Artist, and the founder of <strong style="color: var(--neon-blue);">Active Legend</strong>. As a solo developer, I command every facet of the production pipeline from initial concept design to final compiled deployment.
+            </p>
+
+            <p style="color: var(--text-muted); margin-bottom: 1.5rem; font-size: 1rem; line-height: 1.8;" data-i18n="aboutBio2">
+              From the high-stakes tactical dynamics of <strong style="color: var(--neon-cyan);">Dodge Or Seek</strong> to the imaginative celestial worlds of <strong style="color: var(--plasma-violet);">FoodPlanet</strong>, I build complete interactive universes with rigorous technical fidelity and polished gameplay loops.
+            </p>
+
+            <!-- Holographic Technical Skills Matrix -->
+            <h4 style="font-size: 0.95rem; font-family: var(--font-mono); color: var(--neon-blue); letter-spacing: 0.1em; text-transform: uppercase; margin-top: 1.5rem;" data-i18n="aboutMatrixTitle">
+              // Technical Skills Matrix
+            </h4>
+            <div class="skills-tags-wrap">
+              <span class="skill-pill">⚡ Unreal Engine 5.6.1</span>
+              <span class="skill-pill">💎 Nanite & Lumen</span>
+              <span class="skill-pill">🌀 Chaos Physics</span>
+              <span class="skill-pill">🎨 3D Character Modeling</span>
+              <span class="skill-pill">👾 C++ & Blueprints</span>
+              <span class="skill-pill">🛠️ Blender & ZBrush</span>
+              <span class="skill-pill">🌐 Multiplayer Networking</span>
+              <span class="skill-pill">🚀 60 FPS Optimization</span>
+            </div>
+          </article>
+
+          <!-- Core Pillars / Solo 0-100 Highlights -->
+          <div class="about-features-grid">
+            
+            <article class="glass-panel feature-mini-card reveal-on-scroll anti-grav-float-1 delay-1">
+              <div class="feature-icon-wrapper" aria-hidden="true">
+                <span>🔄</span>
+              </div>
+              <div class="feature-info">
+                <h4 data-i18n="skill1Title">Full Gameplay Loop Creation</h4>
+                <p data-i18n="skill1Desc">
+                  Designing and iterating complete moment-to-moment game loops, progression systems, rulesets, and interactive mechanics.
+                </p>
+              </div>
+            </article>
+
+            <article class="glass-panel feature-mini-card reveal-on-scroll anti-grav-float-2 delay-2">
+              <div class="feature-icon-wrapper" aria-hidden="true">
+                <span>📐</span>
+              </div>
+              <div class="feature-info">
+                <h4 data-i18n="skill2Title">Technical Game Design</h4>
+                <p data-i18n="skill2Desc">
+                  Translating high-level creative concepts into mathematically balanced, systemic, and responsive gameplay architecture.
+                </p>
+              </div>
+            </article>
+
+            <article class="glass-panel feature-mini-card reveal-on-scroll anti-grav-float-3 delay-3">
+              <div class="feature-icon-wrapper" aria-hidden="true">
+                <span>💻</span>
+              </div>
+              <div class="feature-info">
+                <h4 data-i18n="skill3Title">End-to-End Core Coding (All Sections)</h4>
+                <p data-i18n="skill3Desc">
+                  Writing modular, performant C++ and Blueprint logic driving player mechanics, physics interactions, AI, and UI systems.
+                </p>
+              </div>
+            </article>
+
+            <article class="glass-panel feature-mini-card reveal-on-scroll anti-grav-float-1 delay-4">
+              <div class="feature-icon-wrapper" aria-hidden="true">
+                <span>🎬</span>
+              </div>
+              <div class="feature-info">
+                <h4 data-i18n="skill4Title">Animation Assembly & State Machines</h4>
+                <p data-i18n="skill4Desc">
+                  Skeletal mesh setups, complex state machines, layered blend spaces, and procedural locomotion inside Unreal Engine.
+                </p>
+              </div>
+            </article>
+
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+    <!-- =========================================================
+         3. TECHNICAL EXPERTISE SECTION (SOLO 0 TO 100)
+    ========================================================= -->
+    <section id="skills" aria-label="Solo Developer Technical Mastery">
+      <div class="container">
+        
+        <div class="section-header reveal-on-scroll">
+          <div class="section-badge">
+            <span class="status-dot"></span>
+            <span data-i18n="soloHeaderBadge">Solo Developer Pipeline</span>
+          </div>
+          <h2 class="section-title">
+            <span data-i18n="soloTitleStart">End-to-End</span> <span class="text-gradient" data-i18n="soloTitleEnd">Development Mastery</span>
+          </h2>
+          <p class="section-subtitle" data-i18n="soloSubtitle">
+            Every single layer of game production crafted independently from 0 to 100 with technical precision and creative autonomy.
+          </p>
+        </div>
+
+        <div class="solo-skills-grid reveal-on-scroll">
+          <div class="solo-skill-item">
+            <div class="solo-skill-icon">🔄</div>
+            <div class="solo-skill-text">
+              <h5 data-i18n="skill1Title">Full Gameplay Loop Creation</h5>
+              <p data-i18n="skill1Desc">Designing and iterating complete moment-to-moment game loops, progression systems, and core mechanics.</p>
+            </div>
+          </div>
+
+          <div class="solo-skill-item">
+            <div class="solo-skill-icon">📐</div>
+            <div class="solo-skill-text">
+              <h5 data-i18n="skill2Title">Technical Game Design</h5>
+              <p data-i18n="skill2Desc">Translating high-level creative concepts into mathematically balanced, systemic gameplay logic.</p>
+            </div>
+          </div>
+
+          <div class="solo-skill-item">
+            <div class="solo-skill-icon">💻</div>
+            <div class="solo-skill-text">
+              <h5 data-i18n="skill3Title">End-to-End Core Coding (All Sections)</h5>
+              <p data-i18n="skill3Desc">Writing modular, performant C++ and Blueprint architecture powering physics, UI, gameplay, and game modes.</p>
+            </div>
+          </div>
+
+          <div class="solo-skill-item">
+            <div class="solo-skill-icon">🎬</div>
+            <div class="solo-skill-text">
+              <h5 data-i18n="skill4Title">Animation Assembly & State Machines</h5>
+              <p data-i18n="skill4Desc">Rigging, skeletal mesh setups, custom blend spaces, procedural locomotion, and state transitions.</p>
+            </div>
+          </div>
+
+          <div class="solo-skill-item">
+            <div class="solo-skill-icon">🔊</div>
+            <div class="solo-skill-text">
+              <h5 data-i18n="skill5Title">Audio Synchronization</h5>
+              <p data-i18n="skill5Desc">Spatial audio implementation, custom sound design, audio event triggers, and dynamic mixing.</p>
+            </div>
+          </div>
+
+          <div class="solo-skill-item">
+            <div class="solo-skill-icon">🌐</div>
+            <div class="solo-skill-text">
+              <h5 data-i18n="skill6Title">Multiplayer & Network Programming</h5>
+              <p data-i18n="skill6Desc">Authoritative server-client replication, latency compensation, LAN/Online lobbies, and session management.</p>
+            </div>
+          </div>
+
+          <div class="solo-skill-item">
+            <div class="solo-skill-icon">📦</div>
+            <div class="solo-skill-text">
+              <h5 data-i18n="skill7Title">Extreme Game Size Optimization</h5>
+              <p data-i18n="skill7Desc">Aggressive memory profiling, Nanite LOD pipelines, texture compression, and minimal disk footprint packaging.</p>
+            </div>
+          </div>
+
+          <div class="solo-skill-item">
+            <div class="solo-skill-icon">🚀</div>
+            <div class="solo-skill-text">
+              <h5 data-i18n="skill8Title">Unreal Engine 5.6.1 Mastery</h5>
+              <p data-i18n="skill8Desc">Advanced expertise in Chaos Physics, Lumen GI, Virtual Shadow Maps, and Metahuman workflows.</p>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- =========================================================
+         4. HAND-CRAFTED ANIMATION TECHNIQUES (DISTINCT SECTION)
+         Framed strictly as specialized offline artistic animation skills,
+         entirely separate from the 3D game development pipeline.
+    ========================================================= -->
+    <section id="craft" class="craft-section" aria-label="Hand-Crafted Animation Techniques">
+      <div class="container">
+        
+        <div class="section-header reveal-on-scroll">
+          <div class="section-badge badge-amber">
+            <span class="status-dot"></span>
+            <span data-i18n="craftBadge">Traditional Artistry</span>
+          </div>
+          <h2 class="section-title">
+            <span data-i18n="craftTitleStart">Hand-Crafted</span> <span class="text-gradient-amber" data-i18n="craftTitleEnd">Animation Styles</span>
+          </h2>
+          <p class="section-subtitle" data-i18n="craftSubtitle">
+            A dedicated artistic discipline entirely separate from my 3D game development pipeline. Exploring classical, frame-by-frame physical and tactile animation mediums.
+          </p>
+        </div>
+
+        <!-- Distinct Separation Notice Box -->
+        <div class="craft-notice-box reveal-on-scroll">
+          <span style="margin-right: 0.5rem;">ℹ️</span>
+          <span data-i18n="craftNotice">Note: The techniques below represent offline, physical and traditional fine-art animation methods, practiced distinctly from real-time digital 3D game engines.</span>
+        </div>
+
+        <!-- 4 Distinct Animation Techniques Grid -->
+        <div class="craft-grid">
+          
+          <!-- Technique 1: Stop-Motion Claymation -->
+          <article class="craft-card reveal-on-scroll">
+            <div class="craft-card-header">
+              <div class="craft-icon" aria-hidden="true">🏺</div>
+              <span class="craft-badge" data-i18n="craft1Badge">TACTILE CLAY / ARMATURE</span>
+            </div>
+            <h3 class="craft-title" data-i18n="craft1Title">Stop-Motion Claymation</h3>
+            <p class="craft-desc" data-i18n="craft1Desc">
+              Frame-by-frame physical manipulation of sculpted clay figures over jointed armatures under physical studio lighting, capturing organic warmth, tangible volume, and classical artisan storytelling.
+            </p>
+          </article>
+
+          <!-- Technique 2: Cut-out Animation -->
+          <article class="craft-card reveal-on-scroll">
+            <div class="craft-card-header">
+              <div class="craft-icon" aria-hidden="true">✂️</div>
+              <span class="craft-badge" data-i18n="craft2Badge">LAYERED PAPER / COLLAGE</span>
+            </div>
+            <h3 class="craft-title" data-i18n="craft2Title">Cut-out Animation</h3>
+            <p class="craft-desc" data-i18n="craft2Desc">
+              Multi-layered paper, cardboard, and graphic cut-out puppetry on a glass multiplane setup, blending stylized graphic design with articulated jointed movements.
+            </p>
+          </article>
+
+          <!-- Technique 3: Silhouette Animation -->
+          <article class="craft-card reveal-on-scroll">
+            <div class="craft-card-header">
+              <div class="craft-icon" aria-hidden="true">👤</div>
+              <span class="craft-badge" data-i18n="craft3Badge">SHADOW PUPPETRY / HIGH CONTRAST</span>
+            </div>
+            <h3 class="craft-title" data-i18n="craft3Title">Silhouette Animation</h3>
+            <p class="craft-desc" data-i18n="craft3Desc">
+              Stark, expressive shadow puppetry filmed with backlit screens, relying on pure silhouette shapes, delicate filigree profiles, and cinematic high-contrast visual poetry.
+            </p>
+          </article>
+
+          <!-- Technique 4: Pixilation -->
+          <article class="craft-card reveal-on-scroll">
+            <div class="craft-card-header">
+              <div class="craft-icon" aria-hidden="true">🧍</div>
+              <span class="craft-badge" data-i18n="craft4Badge">LIVE-ACTION STOP-MOTION</span>
+            </div>
+            <h3 class="craft-title" data-i18n="craft4Title">Pixilation</h3>
+            <p class="craft-desc" data-i18n="craft4Desc">
+              An avant-garde stop-motion technique utilizing live human actors and real-world physical objects as frame-by-frame animated subjects to produce surreal, physics-defying motion.
+            </p>
+          </article>
+
+        </div>
+
+      </div>
+    </section>
+
+    <!-- =========================================================
+         5. PROJECTS / PORTFOLIO SECTION (2 Flagship Games)
+         Strictly: Dodge Or Seek & FoodPlanet
+         Using local image files:
+         - src="dodge-cover.jpg"
+         - src="foodplanet-cover.jpg"
+    ========================================================= -->
+    <section id="projects" aria-label="Flagship Game Projects">
+      <div class="container">
+        
+        <div class="section-header reveal-on-scroll">
+          <div class="section-badge">
+            <span class="status-dot"></span>
+            <span data-i18n="projectsBadge">Flagship Games</span>
+          </div>
+          <h2 class="section-title">
+            <span data-i18n="projectsTitleStart">Interactive</span> <span class="text-gradient" data-i18n="projectsTitleEnd">Game Creations</span>
+          </h2>
+          <p class="section-subtitle" data-i18n="projectsSubtitle">
+            Explore the two main flagship titles developed in Unreal Engine 5.6.1. Hover over cards to experience 3D perspective levitation.
+          </p>
+        </div>
+
+        <!-- Filter Controls Bar -->
+        <div class="projects-filter-bar reveal-on-scroll" role="toolbar" aria-label="Project Categories">
+          <button class="filter-btn active" data-filter="all" data-i18n="filterAll">All Flagship Games</button>
+          <button class="filter-btn" data-filter="ue5" data-i18n="filterUE5">Unreal Engine 5.6.1</button>
+          <button class="filter-btn" data-filter="tactical" data-i18n="filterTactical">Tactical Survival</button>
+          <button class="filter-btn" data-filter="adventure" data-i18n="filterAdventure">3D Adventure</button>
+        </div>
+
+        <!-- Interactive 3D Projects Grid (2 Flagship Titles) -->
+        <div class="projects-grid">
+          
+          <!-- FLAGSHIP 1: Dodge Or Seek -->
+          <article class="project-card reveal-on-scroll" data-category="ue5 tactical" data-project="dodge-or-seek">
+            <div class="card-glare"></div>
+            
+            <div class="project-media">
+              <img src="dodge-cover.jpg" alt="Dodge Or Seek - Tactical Physics Survival Game by Mohammad Mahdi Molayari" width="800" height="450" loading="lazy">
+              <span class="project-engine-tag">UE 5.6.1</span>
+              <span class="project-badge-tag">Tactical Survival</span>
+            </div>
+
+            <div class="project-content">
+              <h3 class="project-title" data-i18n="p1Title">Dodge Or Seek</h3>
+              <p class="project-desc" data-i18n="p1Desc">
+                A high-octane tactical physics survival and stealth game set in weightless orbital chambers. Outwit adaptive hunter AI through kinetic momentum, precision trajectory control, and dynamic shadow manipulation in Unreal Engine 5.6.1.
+              </p>
+              
+              <div class="project-tech-stack">
+                <span class="tech-pill">Chaos Physics</span>
+                <span class="tech-pill">Hunter AI</span>
+                <span class="tech-pill">Lumen Lighting</span>
+                <span class="tech-pill">C++ & Blueprints</span>
+              </div>
+
+              <div class="project-footer-action">
+                <a href="#modal" class="project-link-btn open-modal-trigger" data-project="dodge-or-seek">
+                  <span data-i18n="p1Inspect">Inspect Blueprint</span>
+                  <span aria-hidden="true">→</span>
+                </a>
+                <span style="font-family: var(--font-mono); font-size: 0.72rem; color: var(--neon-blue);" data-i18n="p1Status">FLAGSHIP TITLE // UE 5.6.1</span>
+              </div>
+            </div>
+          </article>
+
+          <!-- FLAGSHIP 2: FoodPlanet -->
+          <article class="project-card reveal-on-scroll" data-category="ue5 adventure" data-project="foodplanet">
+            <div class="card-glare"></div>
+            
+            <div class="project-media">
+              <img src="foodplanet-cover.jpg" alt="FoodPlanet - 3D Celestial Adventure Game by Mohammad Mahdi Molayari" width="800" height="450" loading="lazy">
+              <span class="project-engine-tag">UE 5.6.1</span>
+              <span class="project-badge-tag">3D Adventure</span>
+            </div>
+
+            <div class="project-content">
+              <h3 class="project-title" data-i18n="p2Title">FoodPlanet</h3>
+              <p class="project-desc" data-i18n="p2Desc">
+                A vibrant 3D adventure platformer set across fantastical celestial gastronomy worlds. Players navigate whimsical burger-astronauts and alien flora with dynamic physics, interactive environments, and stylized real-time UE5 rendering.
+              </p>
+              
+              <div class="project-tech-stack">
+                <span class="tech-pill">3D Platforming</span>
+                <span class="tech-pill">Blender Modeling</span>
+                <span class="tech-pill">Procedural Controls</span>
+                <span class="tech-pill">Stylized PBR</span>
+              </div>
+
+              <div class="project-footer-action">
+                <a href="#modal" class="project-link-btn open-modal-trigger" data-project="foodplanet">
+                  <span data-i18n="p2Inspect">Inspect Blueprint</span>
+                  <span aria-hidden="true">→</span>
+                </a>
+                <span style="font-family: var(--font-mono); font-size: 0.72rem; color: var(--plasma-violet);" data-i18n="p2Status">FLAGSHIP TITLE // UE 5.6.1</span>
+              </div>
+            </div>
+          </article>
+
+        </div>
+
+      </div>
+    </section>
+
+    <!-- =========================================================
+         6. STUDIO SECTION (Active Legend)
+         Using local image: src="active-legend-logo.png"
+    ========================================================= -->
+    <section id="studio" aria-label="Active Legend Studio">
+      <div class="container">
+        
+        <div class="section-header reveal-on-scroll">
+          <div class="section-badge">
+            <span class="status-dot"></span>
+            <span data-i18n="studioBadge">Independent Game Studio</span>
+          </div>
+          <h2 class="section-title">
+            <span data-i18n="studioTitleStart">Active</span> <span class="text-gradient-purple" data-i18n="studioTitleEnd">Legend</span>
+          </h2>
+          <p class="section-subtitle" data-i18n="studioSubtitle">
+            Forging independent interactive experiences where innovative game mechanics converge with visceral visual storytelling.
+          </p>
+        </div>
+
+        <div class="studio-container">
+          
+          <!-- Studio Visual Showcase Card -->
+          <article class="glass-panel glass-panel-purple studio-showcase-card reveal-on-scroll" data-parallax-depth="12">
+            <div class="corner-bracket corner-top-left"></div>
+            <div class="corner-bracket corner-top-right"></div>
+            <div class="corner-bracket corner-bottom-left"></div>
+            <div class="corner-bracket corner-bottom-right"></div>
+
+            <img src="active-legend-logo.png" alt="Active Legend Studio Official Logo" class="studio-logo-banner" width="240" height="240" loading="lazy">
+            
+            <div class="section-badge" style="margin-bottom: 1rem;">
+              <span data-i18n="studioPortalBadge">Official Studio Portal</span>
+            </div>
+
+            <h3 style="font-size: 1.8rem; margin-bottom: 1rem;">
+              activelegend.ir
+            </h3>
+
+            <p style="color: var(--text-muted); margin-bottom: 1.75rem; font-size: 0.95rem; line-height: 1.8;" data-i18n="studioDesc1">
+              Active Legend is Iran's premier indie game development studio and gaming research portal, founded by Mohammad Mahdi Molayari.
+            </p>
+
+            <a href="https://activelegend.ir" target="_blank" rel="noopener noreferrer" class="btn btn-studio magnetic-btn">
+              <span data-i18n="studioLaunchBtn">Launch Studio Portal</span>
+              <span aria-hidden="true">↗</span>
+            </a>
+          </article>
+
+          <!-- Studio Philosophy & Metrics -->
+          <div class="studio-details-wrap reveal-on-scroll">
+            <h3 style="font-size: 2rem; margin-bottom: 1.25rem;" data-i18n="studioStoryTitle">
+              Where Pure Imagination Meets Real-Time Tech
+            </h3>
+
+            <p style="color: var(--text-muted); margin-bottom: 1.5rem; line-height: 1.8; font-size: 1.05rem;" data-i18n="studioStoryP1">
+              Active Legend is more than a studio—it is an experimental game development laboratory. We challenge conventions by coupling rigorous 0-to-100 game development disciplines with the bleeding-edge lighting and physics of Unreal Engine 5.6.1.
+            </p>
+
+            <!-- Studio Metrics Grid -->
+            <div class="studio-stats-grid">
+              <div class="studio-stat-box anti-grav-float-1 delay-1">
+                <div class="num">100%</div>
+                <div class="desc" data-i18n="studioStat1">Indie Creative Freedom</div>
+              </div>
+              <div class="studio-stat-box anti-grav-float-2 delay-2">
+                <div class="num">UE 5.6.1</div>
+                <div class="desc" data-i18n="studioStat2">Next-Gen Pipeline</div>
+              </div>
+              <div class="studio-stat-box anti-grav-float-3 delay-3">
+                <div class="num">0-to-100</div>
+                <div class="desc" data-i18n="studioStat3">Solo 0-100 Engineering</div>
+              </div>
+              <div class="studio-stat-box anti-grav-float-1 delay-4">
+                <div class="num">Dual Focus</div>
+                <div class="desc" data-i18n="studioStat4">Competitive & Adventure</div>
+              </div>
+            </div>
+
+            <p style="font-family: var(--font-mono); font-size: 0.85rem; color: var(--neon-cyan);">
+              // PIPELINE: Unreal Engine 5.6.1 + Blender + ZBrush + Substance 3D + Chaos Physics + Netplay
+            </p>
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+    <!-- =========================================================
+         7. CONTACT / TRANSMISSION SECTION
+         Strictly exact emails:
+         - sirmolayari@gmail.com
+         - studio@activelegend.ir
+    ========================================================= -->
+    <section id="contact" aria-label="Contact and Communications">
+      <div class="container">
+        
+        <div class="section-header reveal-on-scroll">
+          <div class="section-badge">
+            <span class="status-dot"></span>
+            <span data-i18n="contactBadge">Comm Channel</span>
+          </div>
+          <h2 class="section-title">
+            <span data-i18n="contactTitleStart">Establish</span> <span class="text-gradient" data-i18n="contactTitleEnd">Transmission</span>
+          </h2>
+          <p class="section-subtitle" data-i18n="contactSubtitle">
+            Have a game publishing inquiry, collaboration proposal, technical art consultation, or studio partnership? Send a direct transmission.
+          </p>
+        </div>
+
+        <div class="contact-grid">
+          
+          <!-- Contact Info & Exact Emails -->
+          <article class="glass-panel glass-panel-neon contact-info-card reveal-on-scroll" data-parallax-depth="6">
+            <h3 style="font-size: 1.6rem; margin-bottom: 0.75rem; color: #ffffff;" data-i18n="contactFreqTitle">
+              Direct Channels
+            </h3>
+            <p style="color: var(--text-muted); font-size: 0.95rem; margin-bottom: 1.5rem; line-height: 1.7;" data-i18n="contactFreqDesc">
+              Available for professional inquiries, game development projects, technical design, and studio collaborations.
+            </p>
+
+            <div class="contact-channels">
+              
+              <!-- Exact Email 1: sirmolayari@gmail.com -->
+              <a href="mailto:sirmolayari@gmail.com" class="channel-item">
+                <div class="channel-icon" aria-hidden="true">✉️</div>
+                <div>
+                  <div style="font-family: var(--font-mono); font-size: 0.75rem; color: var(--text-dim);" data-i18n="commsEmail1Label">PERSONAL DIRECT EMAIL</div>
+                  <div style="font-weight: 600; color: #ffffff;">sirmolayari@gmail.com</div>
+                </div>
+              </a>
+
+              <!-- Exact Email 2: studio@activelegend.ir -->
+              <a href="mailto:studio@activelegend.ir" class="channel-item">
+                <div class="channel-icon" aria-hidden="true">🏢</div>
+                <div>
+                  <div style="font-family: var(--font-mono); font-size: 0.75rem; color: var(--text-dim);" data-i18n="commsEmail2Label">STUDIO OFFICIAL EMAIL</div>
+                  <div style="font-weight: 600; color: #ffffff;">studio@activelegend.ir</div>
+                </div>
+              </a>
+
+              <!-- Studio Website -->
+              <a href="https://activelegend.ir" target="_blank" rel="noopener noreferrer" class="channel-item">
+                <div class="channel-icon" aria-hidden="true">🌐</div>
+                <div>
+                  <div style="font-family: var(--font-mono); font-size: 0.75rem; color: var(--text-dim);" data-i18n="commsStudioLabel">STUDIO WEBSITE</div>
+                  <div style="font-weight: 600; color: #ffffff;">activelegend.ir</div>
+                </div>
+              </a>
+
+              <!-- GitHub Codebase -->
+              <a href="https://github.com/SirMolayari" target="_blank" rel="noopener noreferrer" class="channel-item">
+                <div class="channel-icon" aria-hidden="true">💻</div>
+                <div>
+                  <div style="font-family: var(--font-mono); font-size: 0.75rem; color: var(--text-dim);" data-i18n="commsGithubLabel">GITHUB CODEBASE</div>
+                  <div style="font-weight: 600; color: #ffffff;">github.com/SirMolayari</div>
+                </div>
+              </a>
+            </div>
+
+            <div style="padding-top: 1.5rem; border-top: 1px solid rgba(255, 255, 255, 0.08);">
+              <span class="section-badge" style="margin-bottom: 0;">
+                <span class="status-dot"></span>
+                <span data-i18n="commsStatus">STATUS: OPEN TO INQUIRIES</span>
+              </span>
+            </div>
+          </article>
+
+          <!-- Glassmorphic Transmission Form -->
+          <article class="glass-panel glass-panel-neon contact-form-card reveal-on-scroll">
+            <div class="corner-bracket corner-top-left"></div>
+            <div class="corner-bracket corner-top-right"></div>
+            <div class="corner-bracket corner-bottom-left"></div>
+            <div class="corner-bracket corner-bottom-right"></div>
+
+            <form id="orbital-contact-form" action="https://formspree.io/f/xdeeqkgl" method="POST" autocomplete="off">
+              <div class="glass-input-group">
+                <label for="sender-name" class="glass-label" data-i18n="lblSender">// IDENTIFIER / YOUR NAME</label>
+                <input type="text" id="sender-name" name="name" class="glass-input" data-i18n="phName" placeholder="e.g. Commander Shepard" required>
+              </div>
+
+              <div class="glass-input-group">
+                <label for="sender-email" class="glass-label" data-i18n="lblEmail">// TRANSMISSION FREQUENCY / EMAIL</label>
+                <input type="email" id="sender-email" name="email" class="glass-input" data-i18n="phEmail" placeholder="name@domain.com" required>
+              </div>
+
+              <div class="glass-input-group">
+                <label for="transmission-subject" class="glass-label" data-i18n="lblSubject">// MISSION SUBJECT</label>
+                <input type="text" id="transmission-subject" name="subject" class="glass-input" data-i18n="phSubject" placeholder="Game Collaboration / Publishing / UE5" required>
+              </div>
+
+              <div class="glass-input-group">
+                <label for="transmission-msg" class="glass-label" data-i18n="lblMsg">// TRANSMISSION MESSAGE</label>
+                <textarea id="transmission-msg" name="message" class="glass-textarea" data-i18n="phMsg" placeholder="Detail your project scope, inquiry, or transmission brief..." required></textarea>
+              </div>
+
+              <button type="submit" class="btn btn-primary magnetic-btn" style="width: 100%;">
+                <span data-i18n="btnTransmit">Transmit Message</span>
+                <span aria-hidden="true">🛰️</span>
+              </button>
+
+              <div id="form-status-msg" style="display: none;"></div>
+            </form>
+          </article>
+
+        </div>
+
+      </div>
+    </section>
+  </main>
+
+  <!-- =========================================================
+       8. SITE FOOTER
+  ========================================================= -->
+  <footer class="site-footer">
+    <div class="container footer-content">
+      <img src="assets/MMMlogo.png" alt="Mohammad Mahdi Molayari Logo" class="footer-logo" width="48" height="48" loading="lazy">
+      
+      <p class="footer-copy" data-i18n="footerCopy">
+        &copy; 2026 <strong>Mohammad Mahdi Molayari</strong>. All Rights Reserved. Founder of Active Legend.
+      </p>
+
+      <p class="footer-coords" data-i18n="footerCoords">
+        DEEP SPACE ENGINE // CRAFTED WITH UNREAL PASSION // 60 FPS INTERACTIVE ENVIRONMENT
+      </p>
+
+      <a href="#hero" class="btn btn-secondary" style="padding: 0.5rem 1.25rem; font-size: 0.8rem; margin-top: 0.5rem;" title="Return to Top">
+        <span data-i18n="btnBackToOrbit">Back To Orbit</span>
+        <span aria-hidden="true">▲</span>
+      </a>
+    </div>
+  </footer>
+
+  <!-- =========================================================
+       9. INTERACTIVE PROJECT DETAILS MODAL
+  ========================================================= -->
+  <div id="project-modal" class="project-modal-backdrop" role="dialog" aria-modal="true" aria-labelledby="modal-title">
+    <div class="glass-panel glass-panel-neon project-modal-panel">
+      <button id="modal-close-btn" class="modal-close-btn" aria-label="Close Project Details">✕</button>
+      
+      <div class="section-badge" style="margin-bottom: 0.5rem;">
+        <span class="status-dot"></span>
+        <span id="modal-engine">PROJECT BLUEPRINT</span>
+      </div>
+
+      <h3 id="modal-title" style="font-size: 2rem; color: #ffffff; margin-bottom: 1.25rem;">
+        Project Title
+      </h3>
+
+      <div id="modal-body" style="line-height: 1.7; font-size: 0.98rem;">
+        <!-- Injected via JavaScript -->
+      </div>
+    </div>
+  </div>
+
+  <!-- JavaScript Modules -->
+  <script src="js/space-canvas.js"></script>
+  <script src="js/floating-physics.js"></script>
+  <script src="js/audio-synth.js"></script>
+  <script src="js/main.js"></script>
+</body>
+</html>

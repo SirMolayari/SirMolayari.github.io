@@ -1,0 +1,407 @@
+/**
+ * Mohammad Mahdi Molayari - Portfolio
+ * Glassmorphic Panels, Floating Containers & Specular Highlights
+ * Built with progressive enhancements and fallbacks for high-contrast accessibility
+ */
+
+/* Universal Glass Base */
+.glass-panel {
+  background: rgba(10, 15, 38, 0.72);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 20px;
+  box-shadow: 
+    0 15px 35px rgba(0, 0, 0, 0.5),
+    inset 0 1px 1px rgba(255, 255, 255, 0.12),
+    inset 0 -1px 1px rgba(0, 0, 0, 0.4);
+  position: relative;
+  overflow: hidden;
+  transition: border-color 0.4s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.4s cubic-bezier(0.16, 1, 0.3, 1), transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+/* Fallback for browsers or devices without backdrop-filter */
+@supports not ((-webkit-backdrop-filter: blur(20px)) or (backdrop-filter: blur(20px))) {
+  .glass-panel,
+  .floating-nav,
+  .project-card,
+  .craft-card,
+  .hud-item,
+  .hud-btn {
+    background: rgba(10, 15, 38, 0.95) !important;
+  }
+}
+
+/* Glass Panel with Neon Blue Accent Sheen */
+.glass-panel-neon {
+  border-color: rgba(0, 240, 255, 0.18);
+  box-shadow: 
+    0 20px 40px rgba(2, 4, 15, 0.6),
+    0 0 30px rgba(0, 240, 255, 0.08),
+    inset 0 1px 2px rgba(0, 240, 255, 0.25);
+}
+
+.glass-panel-neon:hover {
+  border-color: rgba(0, 240, 255, 0.45);
+  box-shadow: 
+    0 25px 50px rgba(0, 0, 0, 0.7),
+    0 0 45px rgba(0, 240, 255, 0.22),
+    inset 0 1px 2px rgba(0, 240, 255, 0.4);
+}
+
+/* Glass Panel with Deep Purple / Indigo Accent Sheen */
+.glass-panel-purple {
+  border-color: rgba(139, 92, 246, 0.2);
+  box-shadow: 
+    0 20px 40px rgba(2, 4, 15, 0.6),
+    0 0 30px rgba(139, 92, 246, 0.1),
+    inset 0 1px 2px rgba(139, 92, 246, 0.25);
+}
+
+.glass-panel-purple:hover {
+  border-color: rgba(139, 92, 246, 0.5);
+  box-shadow: 
+    0 25px 50px rgba(0, 0, 0, 0.7),
+    0 0 50px rgba(139, 92, 246, 0.3),
+    inset 0 1px 2px rgba(139, 92, 246, 0.5);
+}
+
+/* Floating Navigation Island / Dock */
+.floating-nav {
+  position: fixed;
+  bottom: 2rem;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 90;
+  display: flex;
+  align-items: center;
+  gap: 0.35rem;
+  padding: 0.55rem 0.85rem;
+  background: rgba(8, 12, 32, 0.82);
+  backdrop-filter: blur(24px);
+  -webkit-backdrop-filter: blur(24px);
+  border: 1px solid rgba(0, 240, 255, 0.2);
+  border-radius: 9999px;
+  box-shadow: 
+    0 20px 50px rgba(0, 0, 0, 0.75),
+    0 0 35px rgba(0, 240, 255, 0.2),
+    inset 0 1px 2px rgba(255, 255, 255, 0.2);
+  transition: border-color 0.4s ease, box-shadow 0.4s ease;
+}
+
+.floating-nav:hover {
+  border-color: rgba(0, 240, 255, 0.45);
+  box-shadow: 
+    0 25px 60px rgba(0, 0, 0, 0.85),
+    0 0 50px rgba(0, 240, 255, 0.35),
+    inset 0 1px 3px rgba(255, 255, 255, 0.35);
+}
+
+.nav-link {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  padding: 0.5rem 0.95rem;
+  min-height: 40px;
+  border-radius: 9999px;
+  color: var(--text-muted);
+  text-decoration: none;
+  font-family: var(--font-subheading);
+  font-size: 0.85rem;
+  font-weight: 500;
+  letter-spacing: 0.04em;
+  transition: all 0.3s ease;
+  position: relative;
+  white-space: nowrap;
+}
+
+.nav-link:hover {
+  color: #ffffff;
+  background: rgba(255, 255, 255, 0.08);
+}
+
+.nav-link.active {
+  color: #030514;
+  font-weight: 700;
+  background: linear-gradient(135deg, #00f0ff 0%, #38bdf8 100%);
+  box-shadow: 0 0 18px rgba(0, 240, 255, 0.6);
+}
+
+.nav-link .nav-icon {
+  font-size: 0.95rem;
+}
+
+/* Glass Project Cards with 3D Tilt Glare */
+.project-card {
+  border-radius: 24px;
+  background: rgba(8, 13, 33, 0.72);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  transform-style: preserve-3d;
+  perspective: 1000px;
+  transition: border-color 0.4s ease, box-shadow 0.4s ease;
+  cursor: pointer;
+}
+
+.project-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, var(--neon-blue), transparent);
+  opacity: 0;
+  transition: opacity 0.4s ease;
+  z-index: 5;
+}
+
+.project-card:hover::before {
+  opacity: 1;
+}
+
+/* Specular Glare Layer (Follows Mouse Cursor via JS) */
+.card-glare {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  border-radius: 24px;
+  background: radial-gradient(circle 350px at var(--mouse-x, 50%) var(--mouse-y, 50%), rgba(255, 255, 255, 0.12), transparent 70%);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  z-index: 4;
+}
+
+.project-card:hover .card-glare {
+  opacity: 1;
+}
+
+/* Project Card Media */
+.project-media {
+  position: relative;
+  width: 100%;
+  height: 260px;
+  overflow: hidden;
+  background: #040612;
+  border-top-left-radius: 23px;
+  border-top-right-radius: 23px;
+}
+
+.project-media img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+  display: block;
+}
+
+.project-card:hover .project-media img {
+  transform: scale(1.05);
+}
+
+.project-badge-tag {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  background: rgba(6, 9, 25, 0.88);
+  backdrop-filter: blur(12px);
+  border: 1px solid rgba(0, 240, 255, 0.3);
+  color: var(--neon-blue);
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  font-weight: 600;
+  padding: 0.35rem 0.8rem;
+  border-radius: 9999px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5);
+  z-index: 3;
+}
+
+.project-engine-tag {
+  position: absolute;
+  top: 1rem;
+  left: 1rem;
+  background: rgba(35, 35, 84, 0.88);
+  backdrop-filter: blur(12px);
+  border: 1px solid rgba(139, 92, 246, 0.4);
+  color: #ffffff;
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  font-weight: 600;
+  padding: 0.35rem 0.8rem;
+  border-radius: 9999px;
+  z-index: 3;
+}
+
+.project-content {
+  padding: 1.75rem;
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  position: relative;
+  z-index: 3;
+}
+
+.project-title {
+  font-size: 1.5rem;
+  margin-bottom: 0.65rem;
+  color: #ffffff;
+  transition: color 0.3s ease;
+}
+
+.project-card:hover .project-title {
+  color: var(--neon-blue);
+  text-shadow: 0 0 10px rgba(0, 240, 255, 0.3);
+}
+
+.project-desc {
+  font-size: 0.94rem;
+  color: var(--text-muted);
+  line-height: 1.7;
+  margin-bottom: 1.25rem;
+  flex-grow: 1;
+}
+
+.project-tech-stack {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.45rem;
+  margin-bottom: 1.5rem;
+}
+
+.tech-pill {
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  padding: 0.25rem 0.65rem;
+  border-radius: 6px;
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  color: #cbd5e1;
+}
+
+.project-footer-action {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-top: 1rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.07);
+}
+
+.project-link-btn {
+  font-family: var(--font-subheading);
+  font-size: 0.88rem;
+  font-weight: 600;
+  color: var(--neon-blue);
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  transition: gap 0.3s ease, color 0.3s ease;
+}
+
+.project-link-btn:hover {
+  gap: 0.7rem;
+  color: #ffffff;
+  text-shadow: 0 0 8px var(--neon-blue);
+}
+
+/* Glass Form Inputs */
+.glass-input-group {
+  margin-bottom: 1.5rem;
+  text-align: left;
+}
+
+html[dir="rtl"] .glass-input-group {
+  text-align: right;
+}
+
+.glass-label {
+  display: block;
+  font-family: var(--font-subheading);
+  font-size: 0.85rem;
+  font-weight: 500;
+  color: var(--text-muted);
+  margin-bottom: 0.5rem;
+  letter-spacing: 0.05em;
+}
+
+.glass-input,
+.glass-textarea {
+  width: 100%;
+  padding: 0.9rem 1.2rem;
+  background: rgba(6, 10, 28, 0.65);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 12px;
+  font-family: var(--font-body);
+  font-size: 0.95rem;
+  color: #ffffff;
+  outline: none;
+  transition: all 0.3s ease;
+  backdrop-filter: blur(10px);
+}
+
+html[dir="rtl"] .glass-input,
+html[dir="rtl"] .glass-textarea {
+  font-family: var(--font-persian);
+}
+
+.glass-input:focus,
+.glass-textarea:focus {
+  border-color: var(--neon-blue);
+  box-shadow: 0 0 20px rgba(0, 240, 255, 0.25), inset 0 0 10px rgba(0, 240, 255, 0.1);
+  background: rgba(8, 14, 40, 0.85);
+}
+
+.glass-textarea {
+  min-height: 140px;
+  resize: vertical;
+}
+
+/* Glass Corner Tech Brackets */
+.corner-bracket {
+  position: absolute;
+  width: 14px;
+  height: 14px;
+  border-color: var(--neon-blue);
+  pointer-events: none;
+  opacity: 0.6;
+  transition: opacity 0.3s ease, width 0.3s ease, height 0.3s ease;
+}
+
+.corner-top-left {
+  top: 10px;
+  left: 10px;
+  border-top: 2px solid var(--neon-blue);
+  border-left: 2px solid var(--neon-blue);
+}
+.corner-top-right {
+  top: 10px;
+  right: 10px;
+  border-top: 2px solid var(--neon-blue);
+  border-right: 2px solid var(--neon-blue);
+}
+.corner-bottom-left {
+  bottom: 10px;
+  left: 10px;
+  border-bottom: 2px solid var(--neon-blue);
+  border-left: 2px solid var(--neon-blue);
+}
+.corner-bottom-right {
+  bottom: 10px;
+  right: 10px;
+  border-bottom: 2px solid var(--neon-blue);
+  border-right: 2px solid var(--neon-blue);
+}
+
+.glass-panel:hover .corner-bracket {
+  opacity: 1;
+  width: 18px;
+  height: 18px;
+}

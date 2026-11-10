@@ -1,0 +1,84 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 500" width="100%" height="100%">
+  <defs>
+    <linearGradient id="bgDuck" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#080c1d"/>
+      <stop offset="50%" stop-color="#12183a"/>
+      <stop offset="100%" stop-color="#050711"/>
+    </linearGradient>
+
+    <radialGradient id="sunPuff" cx="50%" cy="40%" r="60%">
+      <stop offset="0%" stop-color="#ffb703" stop-opacity="0.8"/>
+      <stop offset="40%" stop-color="#fb8500" stop-opacity="0.4"/>
+      <stop offset="80%" stop-color="#00f0ff" stop-opacity="0.1"/>
+      <stop offset="100%" stop-color="#000000" stop-opacity="0"/>
+    </radialGradient>
+
+    <filter id="neonDuckGlow" x="-30%" y="-30%" width="160%" height="160%">
+      <feGaussianBlur stdDeviation="8" result="blur"/>
+      <feMerge>
+        <feMergeNode in="blur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+
+    <pattern id="hexGrid" width="36" height="36" patternUnits="userSpaceOnUse">
+      <polygon points="18,2 34,10 34,26 18,34 2,26 2,10" fill="none" stroke="#00f0ff" stroke-width="0.7" stroke-opacity="0.12"/>
+    </pattern>
+  </defs>
+
+  <!-- Deep Cosmic Arena -->
+  <rect width="800" height="500" fill="url(#bgDuck)"/>
+  <rect width="800" height="500" fill="url(#hexGrid)"/>
+  <circle cx="400" cy="230" r="190" fill="url(#sunPuff)"/>
+
+  <!-- Arena Moving Platforms (1v1 Competitive LAN Arena) -->
+  <line x1="120" y1="360" x2="320" y2="360" stroke="#00f0ff" stroke-width="4" stroke-linecap="round" filter="url(#neonDuckGlow)"/>
+  <line x1="480" y1="360" x2="680" y2="360" stroke="#ff0055" stroke-width="4" stroke-linecap="round" filter="url(#neonDuckGlow)"/>
+  <line x1="280" y1="260" x2="520" y2="260" stroke="#ffb703" stroke-width="4" stroke-linecap="round" filter="url(#neonDuckGlow)"/>
+
+  <!-- Energy Trails / Ball Trajectory (Air Step Throw) -->
+  <path d="M 220 340 Q 400 110 580 340" fill="none" stroke="#ffb703" stroke-width="3" stroke-dasharray="10 8" filter="url(#neonDuckGlow)"/>
+  
+  <!-- Glowing Kinetic Ball in Mid-Air -->
+  <circle cx="400" cy="185" r="18" fill="#ffb703" filter="url(#neonDuckGlow)"/>
+  <circle cx="400" cy="185" r="10" fill="#ffffff"/>
+  <circle cx="400" cy="185" r="28" fill="none" stroke="#00f0ff" stroke-width="1.5" stroke-dasharray="4 4"/>
+
+  <!-- Player 1: Cyber Duck Silhouette (Blue Hunter) -->
+  <g transform="translate(220, 320)">
+    <!-- Duck Body -->
+    <ellipse cx="0" cy="0" rx="34" ry="24" fill="#00f0ff" filter="url(#neonDuckGlow)"/>
+    <!-- Head -->
+    <circle cx="22" cy="-22" r="18" fill="#00f0ff"/>
+    <!-- Beak -->
+    <polygon points="34,-26 58,-18 34,-14" fill="#ffb703"/>
+    <!-- Visor / Eye -->
+    <rect x="22" y="-28" width="14" height="6" rx="3" fill="#ffffff"/>
+    <!-- Wing -->
+    <ellipse cx="-4" cy="-2" rx="18" ry="10" fill="#0077b6" transform="rotate(-15)"/>
+  </g>
+
+  <!-- Player 2: Cyber Duck Silhouette (Red Predator / Hunter) -->
+  <g transform="translate(580, 320) scale(-1, 1)">
+    <!-- Duck Body -->
+    <ellipse cx="0" cy="0" rx="34" ry="24" fill="#ff0055" filter="url(#neonDuckGlow)"/>
+    <!-- Head -->
+    <circle cx="22" cy="-22" r="18" fill="#ff0055"/>
+    <!-- Beak -->
+    <polygon points="34,-26 58,-18 34,-14" fill="#ffb703"/>
+    <!-- Visor / Eye -->
+    <rect x="22" y="-28" width="14" height="6" rx="3" fill="#ffffff"/>
+    <!-- Wing -->
+    <ellipse cx="-4" cy="-2" rx="18" ry="10" fill="#9d0208" transform="rotate(-15)"/>
+  </g>
+
+  <!-- Telemetry Overlay -->
+  <text x="35" y="45" font-family="'Courier New', monospace" font-size="12" fill="#ffb703" letter-spacing="3">1v1 COMPETITIVE MULTIPLAYER // UE 5</text>
+  <text x="35" y="65" font-family="'Courier New', monospace" font-size="10" fill="#00f0ff" letter-spacing="2">AIR STEP &amp; TAG MECHANICS // RANK 4 JAM</text>
+  <text x="765" y="45" text-anchor="end" font-family="'Courier New', monospace" font-size="12" fill="#00f0ff" letter-spacing="2">ACTIVE LEGEND FLAGSHIP</text>
+  <text x="765" y="65" text-anchor="end" font-family="'Courier New', monospace" font-size="10" fill="#94a3b8" letter-spacing="1">STATUS: RELEASED / ACTIVE</text>
+
+  <!-- Title Badge -->
+  <text x="400" y="445" text-anchor="middle" font-family="'Impact', 'Arial Black', sans-serif" font-size="36" font-weight="900" fill="#ffffff" letter-spacing="8" filter="url(#neonDuckGlow)">STOP DUCK</text>
+  <text x="400" y="470" text-anchor="middle" font-family="sans-serif" font-size="11" font-weight="600" fill="#ffb703" letter-spacing="4">COMPETITIVE 1V1 ACTION // استپ اردک</text>
+</svg>

@@ -1,0 +1,102 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 500" width="100%" height="100%">
+  <defs>
+    <radialGradient id="spaceBack" cx="50%" cy="50%" r="75%">
+      <stop offset="0%" stop-color="#180e29"/>
+      <stop offset="60%" stop-color="#080415"/>
+      <stop offset="100%" stop-color="#020108"/>
+    </radialGradient>
+    
+    <!-- Claymation Planetary Gradient -->
+    <radialGradient id="clayPlanet" cx="35%" cy="30%" r="65%">
+      <stop offset="0%" stop-color="#ff9966"/>
+      <stop offset="45%" stop-color="#ff5e62"/>
+      <stop offset="80%" stop-color="#8a1846"/>
+      <stop offset="100%" stop-color="#3c0827"/>
+    </radialGradient>
+    
+    <radialGradient id="donutRing" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#00f0ff" stop-opacity="0.8"/>
+      <stop offset="70%" stop-color="#a855f7" stop-opacity="0.6"/>
+      <stop offset="100%" stop-color="#ff00aa" stop-opacity="0"/>
+    </radialGradient>
+
+    <!-- Clay Filter for Tactile Texture -->
+    <filter id="clayTexture" x="-20%" y="-20%" width="140%" height="140%">
+      <feTurbulence type="fractalNoise" baseFrequency="0.04" numOctaves="3" result="noise"/>
+      <feDiffuseLighting in="noise" lighting-color="#ffffff" surfaceScale="2.5" result="light">
+        <feDistantLight azimuth="45" elevation="55"/>
+      </feDiffuseLighting>
+      <feBlend mode="multiply" in="SourceGraphic" in2="light"/>
+    </filter>
+
+    <filter id="neonGlow" x="-50%" y="-50%" width="200%" height="200%">
+      <feGaussianBlur stdDeviation="8" result="blur"/>
+      <feMerge>
+        <feMergeNode in="blur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+  </defs>
+
+  <!-- Deep Cosmos -->
+  <rect width="800" height="500" fill="url(#spaceBack)"/>
+
+  <!-- Cosmic Floating Stars & Candies (Zero-G) -->
+  <circle cx="120" cy="90" r="3" fill="#ffe066" opacity="0.8"/>
+  <circle cx="210" cy="140" r="2" fill="#00f0ff" opacity="0.7"/>
+  <circle cx="680" cy="110" r="3.5" fill="#ff70a6" opacity="0.9"/>
+  <circle cx="720" cy="380" r="2" fill="#ffffff" opacity="0.6"/>
+  <circle cx="90" cy="410" r="4" fill="#a855f7" opacity="0.8"/>
+  <circle cx="340" cy="60" r="1.5" fill="#38bdf8" opacity="0.7"/>
+
+  <!-- Floating Stop-Motion Clay Moons / Macaron Satellites -->
+  <g transform="translate(160, 290) rotate(-15)" filter="url(#clayTexture)">
+    <ellipse cx="0" cy="0" rx="42" ry="24" fill="#38bdf8"/>
+    <ellipse cx="0" cy="-6" rx="40" ry="18" fill="#70e000"/>
+    <ellipse cx="0" cy="-12" rx="38" ry="16" fill="#ffd166"/>
+  </g>
+  <ellipse cx="160" cy="290" rx="55" ry="12" fill="none" stroke="#00f0ff" stroke-width="1.5" stroke-dasharray="4 6" opacity="0.8"/>
+
+  <!-- Back Ring of Main Clay Planet -->
+  <ellipse cx="450" cy="230" rx="260" ry="65" fill="none" stroke="url(#donutRing)" stroke-width="26" opacity="0.45" transform="rotate(-18 450 230)"/>
+
+  <!-- Main Sculpted Clay Planet -->
+  <circle cx="450" cy="230" r="130" fill="url(#clayPlanet)" filter="url(#clayTexture)"/>
+  
+  <!-- Tactile Craters & Sculpt Marks -->
+  <ellipse cx="400" cy="180" rx="24" ry="18" fill="#4d0e2e" opacity="0.75" transform="rotate(-10 400 180)"/>
+  <ellipse cx="404" cy="182" rx="18" ry="13" fill="#ff70a6" opacity="0.3"/>
+  <ellipse cx="480" cy="270" rx="36" ry="24" fill="#3d0724" opacity="0.8"/>
+  <ellipse cx="370" cy="270" rx="16" ry="12" fill="#5c1236" opacity="0.7"/>
+
+  <!-- Front Ring of Main Planet -->
+  <path d="M 195 248 C 220 310 680 270 705 212" fill="none" stroke="#00f0ff" stroke-width="8" stroke-linecap="round" opacity="0.85" filter="url(#neonGlow)"/>
+  <path d="M 215 252 C 240 305 660 268 685 216" fill="none" stroke="#ff00aa" stroke-width="4" stroke-linecap="round" opacity="0.7"/>
+
+  <!-- Whimsical Claymation Astronaut / Creature Silhouette -->
+  <g transform="translate(435, 120)">
+    <!-- Body -->
+    <ellipse cx="0" cy="-18" rx="14" ry="18" fill="#ffd166"/>
+    <!-- Head / Chef Hat or Helmet -->
+    <circle cx="0" cy="-38" r="16" fill="#ffffff"/>
+    <ellipse cx="0" cy="-50" rx="14" ry="8" fill="#ff5e62"/>
+    <!-- Big Eye -->
+    <circle cx="4" cy="-38" r="6" fill="#080415"/>
+    <circle cx="6" cy="-40" r="2.5" fill="#ffffff"/>
+    <!-- Little Floating Foot & Wand -->
+    <ellipse cx="-10" cy="-2" rx="6" ry="4" fill="#ff9966"/>
+    <ellipse cx="10" cy="2" rx="6" ry="4" fill="#ff9966"/>
+    <line x1="12" y1="-22" x2="28" y2="-32" stroke="#00f0ff" stroke-width="2" stroke-linecap="round"/>
+    <circle cx="30" cy="-34" r="4" fill="#00f0ff" filter="url(#neonGlow)"/>
+  </g>
+
+  <!-- HUD Overlay Info -->
+  <text x="35" y="45" font-family="'Courier New', monospace" font-size="12" fill="#ff70a6" letter-spacing="3">CLAYMATION / STOP-MOTION ART // UE 5.6.1</text>
+  <text x="35" y="65" font-family="'Courier New', monospace" font-size="10" fill="#00f0ff" letter-spacing="2">TACTILE SHADER PIPELINE: ONLINE</text>
+  <text x="765" y="45" text-anchor="end" font-family="'Courier New', monospace" font-size="12" fill="#ffd166" letter-spacing="2">FOODPLANET WORLD</text>
+  <text x="765" y="65" text-anchor="end" font-family="'Courier New', monospace" font-size="10" fill="#94a3b8" letter-spacing="1">FRAME RATE: 12 FPS STOP-MOTION</text>
+
+  <!-- Title Badge -->
+  <text x="400" y="445" text-anchor="middle" font-family="'Impact', 'Arial Black', sans-serif" font-size="34" font-weight="900" fill="#ffffff" letter-spacing="6" filter="url(#neonGlow)">FOODPLANET</text>
+  <text x="400" y="470" text-anchor="middle" font-family="sans-serif" font-size="11" font-weight="600" fill="#ff9966" letter-spacing="4">ORGANIC CLAYMATION 3D ADVENTURE</text>
+</svg>

@@ -1,0 +1,85 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 500" width="100%" height="100%">
+  <defs>
+    <linearGradient id="deepVoid" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#020007"/>
+      <stop offset="50%" stop-color="#0a051d"/>
+      <stop offset="100%" stop-color="#010005"/>
+    </linearGradient>
+
+    <radialGradient id="anomalyLight" cx="50%" cy="40%" r="55%">
+      <stop offset="0%" stop-color="#a855f7" stop-opacity="0.95"/>
+      <stop offset="35%" stop-color="#6366f1" stop-opacity="0.5"/>
+      <stop offset="70%" stop-color="#1e103d" stop-opacity="0.3"/>
+      <stop offset="100%" stop-color="#000000" stop-opacity="0"/>
+    </radialGradient>
+
+    <linearGradient id="monolithMetal" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#1e2238"/>
+      <stop offset="50%" stop-color="#0d1124"/>
+      <stop offset="100%" stop-color="#04060d"/>
+    </linearGradient>
+
+    <filter id="violetGlow" x="-50%" y="-50%" width="200%" height="200%">
+      <feGaussianBlur stdDeviation="10" result="blur"/>
+      <feMerge>
+        <feMergeNode in="blur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+
+    <filter id="scanline">
+      <feTurbulence type="fractalNoise" baseFrequency="0.001 0.8" numOctaves="1" result="lines"/>
+      <feColorMatrix type="matrix" values="0 0 0 0 0.4   0 0 0 0 0.6   0 0 0 0 1   0 0 0 0.15 0"/>
+      <feComposite in2="SourceGraphic" in="lines" operator="in"/>
+    </filter>
+  </defs>
+
+  <!-- Deep Cosmic Black Void -->
+  <rect width="800" height="500" fill="url(#deepVoid)"/>
+
+  <!-- Gravitational Anomaly Distortion Field -->
+  <circle cx="400" cy="210" r="170" fill="url(#anomalyLight)"/>
+
+  <!-- Gravitational Lensing Rings -->
+  <circle cx="400" cy="210" r="140" fill="none" stroke="#a855f7" stroke-width="1" stroke-dasharray="3 9" opacity="0.6"/>
+  <circle cx="400" cy="210" r="180" fill="none" stroke="#00f0ff" stroke-width="0.8" opacity="0.4"/>
+  <circle cx="400" cy="210" r="220" fill="none" stroke="#6366f1" stroke-width="0.5" stroke-dasharray="10 15" opacity="0.3"/>
+
+  <!-- Derelict Atmospheric Deep-Space Station / Monolith (FATISA Station) -->
+  <!-- Outer Ring Habitat -->
+  <path d="M 220 230 C 240 120 560 120 580 230 C 560 340 240 340 220 230" fill="none" stroke="#3b82f6" stroke-width="2.5" opacity="0.4"/>
+  
+  <!-- Central Spire & Habitat Hub -->
+  <polygon points="385,80 415,80 435,270 365,270" fill="url(#monolithMetal)" stroke="#8b5cf6" stroke-width="1.5"/>
+  <polygon points="370,270 430,270 450,330 350,330" fill="#080c1d" stroke="#00f0ff" stroke-width="1"/>
+  
+  <!-- Antenna Array & Sensor Masts -->
+  <line x1="400" y1="80" x2="400" y2="35" stroke="#00f0ff" stroke-width="2"/>
+  <circle cx="400" cy="35" r="4" fill="#00f0ff" filter="url(#violetGlow)"/>
+  <line x1="390" y1="55" x2="410" y2="55" stroke="#8b5cf6" stroke-width="1.5"/>
+  <line x1="380" y1="65" x2="420" y2="65" stroke="#8b5cf6" stroke-width="1.5"/>
+
+  <!-- Habitation Windows / Neon Pulse of the Derelict -->
+  <rect x="393" y="110" width="14" height="4" fill="#00f0ff" opacity="0.9" filter="url(#violetGlow)"/>
+  <rect x="393" y="130" width="14" height="4" fill="#a855f7" opacity="0.8"/>
+  <rect x="393" y="160" width="14" height="4" fill="#00f0ff" opacity="0.95" filter="url(#violetGlow)"/>
+  <rect x="393" y="190" width="14" height="4" fill="#ff0055" opacity="0.9" filter="url(#violetGlow)"/>
+  <rect x="393" y="220" width="14" height="4" fill="#00f0ff" opacity="0.8"/>
+
+  <!-- Modular Solar Panels / Radiator Fins -->
+  <polygon points="320,170 365,185 365,220 320,205" fill="#060917" stroke="#00f0ff" stroke-width="1" opacity="0.7"/>
+  <polygon points="480,170 435,185 435,220 480,205" fill="#060917" stroke="#00f0ff" stroke-width="1" opacity="0.7"/>
+
+  <!-- Haunting Volumetric Light Ray -->
+  <polygon points="400,210 260,420 540,420" fill="url(#anomalyLight)" opacity="0.35"/>
+
+  <!-- Telemetry & Psychological Logs Overlay -->
+  <text x="35" y="45" font-family="'Courier New', monospace" font-size="12" fill="#a855f7" letter-spacing="3">PSYCHOLOGICAL SCI-FI // UE 5.6.1</text>
+  <text x="35" y="65" font-family="'Courier New', monospace" font-size="10" fill="#00f0ff" letter-spacing="2">SECTOR: DERELICT ANOMALY 09</text>
+  <text x="765" y="45" text-anchor="end" font-family="'Courier New', monospace" font-size="12" fill="#ef4444" letter-spacing="2">SIGNAL DETECTED</text>
+  <text x="765" y="65" text-anchor="end" font-family="'Courier New', monospace" font-size="10" fill="#64748b" letter-spacing="1">NANITE / LUMEN ILLUMINATION</text>
+
+  <!-- Title Badge -->
+  <text x="400" y="445" text-anchor="middle" font-family="'Impact', 'Arial Black', sans-serif" font-size="36" font-weight="900" fill="#ffffff" letter-spacing="12" filter="url(#violetGlow)">FATISA</text>
+  <text x="400" y="470" text-anchor="middle" font-family="sans-serif" font-size="11" font-weight="600" fill="#a855f7" letter-spacing="4">ATMOSPHERIC NARRATIVE MYSTERY</text>
+</svg>

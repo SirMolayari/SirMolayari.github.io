@@ -1,0 +1,55 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 500" width="100%" height="100%">
+  <defs>
+    <radialGradient id="portalGrad" cx="50%" cy="50%" r="65%">
+      <stop offset="0%" stop-color="#00f0ff" stop-opacity="0.3"/>
+      <stop offset="40%" stop-color="#3b82f6" stop-opacity="0.15"/>
+      <stop offset="70%" stop-color="#7c3aed" stop-opacity="0.1"/>
+      <stop offset="100%" stop-color="#02040d" stop-opacity="0.95"/>
+    </radialGradient>
+
+    <linearGradient id="crestGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#00f0ff"/>
+      <stop offset="50%" stop-color="#6366f1"/>
+      <stop offset="100%" stop-color="#a855f7"/>
+    </linearGradient>
+
+    <filter id="studioGlow" x="-50%" y="-50%" width="200%" height="200%">
+      <feGaussianBlur stdDeviation="8" result="blur"/>
+      <feMerge>
+        <feMergeNode in="blur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+  </defs>
+
+  <rect width="800" height="500" fill="#030511"/>
+  <rect width="800" height="500" fill="url(#portalGrad)"/>
+
+  <!-- Rotating Orbital Rings -->
+  <circle cx="400" cy="220" r="170" fill="none" stroke="#00f0ff" stroke-width="1.5" stroke-dasharray="14 10" opacity="0.4"/>
+  <circle cx="400" cy="220" r="140" fill="none" stroke="#8b5cf6" stroke-width="2" stroke-dasharray="24 16" opacity="0.6"/>
+  <circle cx="400" cy="220" r="105" fill="none" stroke="#00f0ff" stroke-width="1" stroke-dasharray="6 6" opacity="0.5"/>
+
+  <!-- Hexagonal Tech Gateway -->
+  <polygon points="400,90 510,155 510,285 400,350 290,285 290,155" fill="rgba(8, 14, 38, 0.6)" stroke="url(#crestGrad)" stroke-width="2.5" filter="url(#studioGlow)"/>
+
+  <!-- Active Legend Studio Central Sigil (Stylized Phoenix / Falcon / Geometric Legend Crest) -->
+  <g transform="translate(400, 220)" filter="url(#studioGlow)">
+    <!-- Wings of Active Legend -->
+    <path d="M 0 -50 C 40 -40 80 -10 90 20 C 60 15 40 40 20 60 C 20 40 10 20 0 10 C -10 20 -20 40 -20 60 C -40 40 -60 15 -90 20 C -80 -10 -40 -40 0 -50 Z" fill="url(#crestGrad)"/>
+    <!-- Central Kinetic Diamond Core -->
+    <polygon points="0,-25 15,0 0,25 -15,0" fill="#ffffff"/>
+    <circle cx="0" cy="0" r="4" fill="#00f0ff"/>
+  </g>
+
+  <!-- Futuristic Corner Markers -->
+  <path d="M 40 70 L 40 40 L 70 40" fill="none" stroke="#00f0ff" stroke-width="2"/>
+  <path d="M 760 70 L 760 40 L 730 40" fill="none" stroke="#00f0ff" stroke-width="2"/>
+  <path d="M 40 430 L 40 460 L 70 460" fill="none" stroke="#00f0ff" stroke-width="2"/>
+  <path d="M 760 430 L 760 460 L 730 460" fill="none" stroke="#00f0ff" stroke-width="2"/>
+
+  <!-- Studio Domain & Meta -->
+  <text x="400" y="390" text-anchor="middle" font-family="'Courier New', monospace" font-size="14" fill="#00f0ff" letter-spacing="6">WWW.ACTIVELEGEND.IR</text>
+  <text x="400" y="440" text-anchor="middle" font-family="'Impact', 'Arial Black', sans-serif" font-size="34" font-weight="900" fill="#ffffff" letter-spacing="8" filter="url(#studioGlow)">ACTIVE LEGEND</text>
+  <text x="400" y="465" text-anchor="middle" font-family="sans-serif" font-size="11" font-weight="600" fill="#a855f7" letter-spacing="5">GAME DEVELOPMENT STUDIO</text>
+</svg>

@@ -1,0 +1,75 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 500" width="100%" height="100%">
+  <defs>
+    <linearGradient id="bgGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#050816"/>
+      <stop offset="50%" stop-color="#090d2e"/>
+      <stop offset="100%" stop-color="#02040b"/>
+    </linearGradient>
+    <radialGradient id="cyberCore" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#00f0ff" stop-opacity="0.9"/>
+      <stop offset="40%" stop-color="#0077ff" stop-opacity="0.5"/>
+      <stop offset="70%" stop-color="#7000ff" stop-opacity="0.2"/>
+      <stop offset="100%" stop-color="#000000" stop-opacity="0"/>
+    </radialGradient>
+    <filter id="laserGlow" x="-50%" y="-50%" width="200%" height="200%">
+      <feGaussianBlur stdDeviation="6" result="blur"/>
+      <feMerge>
+        <feMergeNode in="blur"/>
+        <feMergeNode in="blur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+    <pattern id="grid" width="40" height="40" patternUnits="userSpaceOnUse">
+      <path d="M 40 0 L 0 0 0 40" fill="none" stroke="#00f0ff" stroke-width="0.5" stroke-opacity="0.12"/>
+    </pattern>
+  </defs>
+
+  <!-- Background -->
+  <rect width="800" height="500" fill="url(#bgGrad)"/>
+  <rect width="800" height="500" fill="url(#grid)"/>
+
+  <!-- Gravitational Singularity Core -->
+  <circle cx="400" cy="250" r="160" fill="url(#cyberCore)"/>
+  
+  <!-- Zero-G Hexagonal Forcefield Grid -->
+  <polygon points="400,110 520,180 520,320 400,390 280,320 280,180" fill="none" stroke="#00f0ff" stroke-width="1.5" stroke-opacity="0.4" stroke-dasharray="8 6"/>
+  <polygon points="400,140 495,195 495,305 400,360 305,305 305,195" fill="rgba(0, 240, 255, 0.04)" stroke="#8b5cf6" stroke-width="2" stroke-opacity="0.7"/>
+
+  <!-- Energy Rings & Orbital Vectors -->
+  <ellipse cx="400" cy="250" rx="220" ry="80" fill="none" stroke="#00f0ff" stroke-width="1.8" stroke-dasharray="12 18" transform="rotate(-20 400 250)" filter="url(#laserGlow)"/>
+  <ellipse cx="400" cy="250" rx="190" ry="60" fill="none" stroke="#b026ff" stroke-width="1.5" stroke-dasharray="20 10" transform="rotate(35 400 250)"/>
+
+  <!-- Tactical Hunter & Seeker Drones (Physics Simulation Nodes) -->
+  <!-- Central Seeker Core -->
+  <circle cx="400" cy="250" r="28" fill="#080b21" stroke="#00f0ff" stroke-width="3" filter="url(#laserGlow)"/>
+  <polygon points="400,232 415,258 385,258" fill="#00f0ff"/>
+  <circle cx="400" cy="250" r="6" fill="#ffffff"/>
+
+  <!-- Dodging Entities -->
+  <g transform="translate(240, 200)" filter="url(#laserGlow)">
+    <circle cx="0" cy="0" r="14" fill="#ff0055" fill-opacity="0.9"/>
+    <circle cx="0" cy="0" r="24" fill="none" stroke="#ff0055" stroke-width="1" stroke-dasharray="4 4"/>
+    <line x1="-30" y1="10" x2="-8" y2="-2" stroke="#ff0055" stroke-width="2" stroke-linecap="round"/>
+  </g>
+
+  <g transform="translate(560, 280)" filter="url(#laserGlow)">
+    <circle cx="0" cy="0" r="16" fill="#00ff88" fill-opacity="0.9"/>
+    <circle cx="0" cy="0" r="28" fill="none" stroke="#00ff88" stroke-width="1.5" stroke-dasharray="6 4"/>
+    <line x1="30" y1="-15" x2="8" y2="4" stroke="#00ff88" stroke-width="2" stroke-linecap="round"/>
+  </g>
+
+  <!-- Vector Trajectories & Targeting Reticles -->
+  <path d="M 240 200 Q 320 140 400 250 T 560 280" fill="none" stroke="rgba(0, 240, 255, 0.4)" stroke-width="1.5" stroke-dasharray="5 5"/>
+  <line x1="180" y1="250" x2="620" y2="250" stroke="#00f0ff" stroke-width="0.5" stroke-opacity="0.2"/>
+  <line x1="400" y1="90" x2="400" y2="410" stroke="#00f0ff" stroke-width="0.5" stroke-opacity="0.2"/>
+
+  <!-- HUD Telemetry Labels -->
+  <text x="35" y="45" font-family="'Courier New', monospace" font-size="12" fill="#00f0ff" letter-spacing="3" opacity="0.85">TACTICAL PHYSICS SIMULATION // UE 5.6.1</text>
+  <text x="35" y="65" font-family="'Courier New', monospace" font-size="10" fill="#8b5cf6" letter-spacing="2">ZERO-G STATUS: [DODGE_OR_SEEK.EXE]</text>
+  <text x="765" y="45" text-anchor="end" font-family="'Courier New', monospace" font-size="12" fill="#00f0ff" letter-spacing="2">CHAOS ENGINE: ACTIVE</text>
+  <text x="765" y="65" text-anchor="end" font-family="'Courier New', monospace" font-size="10" fill="#64748b" letter-spacing="1">RADAR LOCK // LATENCY: 0.2ms</text>
+
+  <!-- Title Watermark -->
+  <text x="400" y="445" text-anchor="middle" font-family="'Impact', 'Arial Black', sans-serif" font-size="34" font-weight="900" fill="#ffffff" letter-spacing="8" filter="url(#laserGlow)">DODGE OR SEEK</text>
+  <text x="400" y="470" text-anchor="middle" font-family="sans-serif" font-size="11" font-weight="600" fill="#38bdf8" letter-spacing="4">KINETIC ZERO-GRAVITY SURVIVAL</text>
+</svg>
